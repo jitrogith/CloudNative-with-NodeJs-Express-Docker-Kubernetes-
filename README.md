@@ -20,4 +20,10 @@ Save your IP public for example http://55.55.55.55
     $ npm start
 #### Open browser and type http://55.55.55.55:3000
 
-## 4. 
+## 4. Create Dockerfile
+## 5. Upload Image to Dockerhub
+## 6. Install Kubernetes
+## 7. Download/ pull Image from Dockerhub
+## 8. Helm
+## 9. Prometheus
+## 10. Grafana
