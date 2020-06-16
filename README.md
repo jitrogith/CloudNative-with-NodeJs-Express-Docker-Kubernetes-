@@ -75,6 +75,36 @@ Save your IP public for example http://55.55.55.55
     $ docker tag nodeserver-run rootdock/nodeserver:1.1.0
     $ docker login
     $ docker push rootdock/nodeserver:1.1.0
-
+    
+    Enable Liveness & Readiness on Chart:
+    $ vim /opt/myApp/charts/nodeserver/values.yml
+    UN-MARKING/DELETE'#' to be like this (this PART Only) :
+          ...
+          tag: 1.1.0    # make sure it has same Image's version as created before !
+          ...
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 3000
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          ...
+          
+    $ helm upgrade nodeserver chart/nodeserver
+    
 ## 9. Prometheus
+    Download Prometheus from https://prometheus.io/download/
+    Install
+    $ tar xvfz prometheus-*.tar.gz
+    $ cd prometheus-*
+    $ vim prometheus.yml              >> edit if you want, for now we leave it as is
+    $ ./prometheus -config.file=prometheus.yml
+    Open Browser http://55.55.55.55:9090 and it will guide you to http://55.55.55.55:9090/graph
+    
 ## 10. Grafana
