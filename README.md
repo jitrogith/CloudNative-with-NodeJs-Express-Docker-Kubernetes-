@@ -69,6 +69,12 @@ Save your IP public for example http://55.55.55.55
     $ npm start
     Browse http://55.55.55.55:3000/live
     Browse http://55.55.55.55:3000/ready
+    
+    Let's build Image !
+    $ docker build -t nodeserver-run -f Dockerfile-run .
+    $ docker tag nodeserver-run rootdock/nodeserver:1.1.0
+    $ docker login
+    $ docker push rootdock/nodeserver:1.1.0
 
 ## 9. Prometheus
 ## 10. Grafana
