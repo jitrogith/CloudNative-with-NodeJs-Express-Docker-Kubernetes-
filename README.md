@@ -19,7 +19,8 @@ Save your IP public for example http://55.55.55.55
     $ express myApp
     $ npm install
     $ npm start
-#### Open browser and type http://55.55.55.55:3000
+    
+    Open browser and type http://55.55.55.55:3000
 
 ## 4. Create Dockerfile
     Open Docker path on https://www.cloudnativejs.io/
@@ -44,8 +45,30 @@ Save your IP public for example http://55.55.55.55
     Delete & Upgrade Pod with Helm
     
     Install Probe : Liveness & Readiness
-    $npm install @cloudnative/health-connect
-
+    $ npm install @cloudnative/health-connect
+    $ vim /opt/myApp/app.js
+        let health = require('@cloudnative/health-connect')
+        let healthcheck = new health.HealthChecker()
+        app.use('/live', health.LivenessEndpoint(healthcheck))
+    $ npm install
+    $ npm start
+    Browse http://55.55.55.55:3000/live
+    
+    Let's add Ping Checker !
+    $ vim /opt/myApp/app.js
+        let pingcheck = new health.PingCheck('example.com')
+        healthcheck.registerLivenessCheck(pingcheck)
+    $ npm install
+    $ npm start
+    Browse http://55.55.55.55:3000/live
+    
+    Let's add liveness & readiness check !
+    $ vim /opt/myApp/app.js
+        app.use('/live', health.LivenessEndpoint(healthcheck))
+    $ npm install
+    $ npm start
+    Browse http://55.55.55.55:3000/live
+    Browse http://55.55.55.55:3000/ready
 
 ## 9. Prometheus
 ## 10. Grafana
