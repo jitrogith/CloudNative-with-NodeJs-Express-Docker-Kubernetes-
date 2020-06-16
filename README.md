@@ -6,6 +6,7 @@ Let's Develop NodeJs with Docker & Kubernetes on AWS Amazon !
 Save your IP public for example http://55.55.55.55
 
 ## 2. Install NodeJs
+    Browse https://www.cloudnativejs.io/
     $ sudo apt-get install curl
     $ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     $ sudo apt-get install nodejs
@@ -21,13 +22,30 @@ Save your IP public for example http://55.55.55.55
 #### Open browser and type http://55.55.55.55:3000
 
 ## 4. Create Dockerfile
+    Open Docker path on https://www.cloudnativejs.io/
+    
 ## 5. Upload Image to Dockerhub
 ## 6. Install Kubernetes
 ## 7. Download/ pull Image from Dockerhub
 ## 8. Helm
+    Install Helm
+    $ mkdir /opt/download
+    $ snap install helm --classic
+    $ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+    
+    Open Kubernetes path on https://www.cloudnativejs.io/
+    Download MasterChart (Master.zip) for Helm
+    $ cd /opt/download
+    $ wget https://github.com/CloudNativeJS/helm/archive/master.zip
+    $ unzip master.zip
     Install pod
+    $ helm install nodeserver chart/nodeserver
+    
     Delete & Upgrade Pod with Helm
+    
     Install Probe : Liveness & Readiness
+    $npm install @cloudnative/health-connect
+
 
 ## 9. Prometheus
 ## 10. Grafana
