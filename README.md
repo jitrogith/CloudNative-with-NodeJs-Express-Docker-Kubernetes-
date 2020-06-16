@@ -25,5 +25,9 @@ Save your IP public for example http://55.55.55.55
 ## 6. Install Kubernetes
 ## 7. Download/ pull Image from Dockerhub
 ## 8. Helm
+    Install pod
+    Delete & Upgrade Pod with Helm
+    Install Probe : Liveness & Readiness
+
 ## 9. Prometheus
 ## 10. Grafana
